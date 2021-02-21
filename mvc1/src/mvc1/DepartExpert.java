@@ -5,8 +5,18 @@ import java.util.List;
 
 public class DepartExpert {
 	
+	public String checkName(String name) {
+		if(name.equals("") || name == "") {
+			name = "이름을 입력해주세요.";
+		}
+		
+		
+		return name;
+	}
+	
 	public List<String> getAdvice(String depart){
 		List<String> list = new ArrayList<String>();
+		
 		
 		switch(depart) {
 		case"kor":
