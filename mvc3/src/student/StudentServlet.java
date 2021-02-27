@@ -2,7 +2,10 @@ package student;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
+import java.util.List;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -18,16 +21,11 @@ public class StudentServlet extends HttpServlet{
 		
 		String cmd = req.getParameter("command");
 		PrintWriter pw = resp.getWriter();
-		
-		if(cmd.equals("insert")) {
-			pw.println("학생등록페이지에서 왔네요");
-		} else if (cmd.equals("delete")) {
-			pw.println("학생삭제페이지에서 왔네요");
-		} else if (cmd.equals("find")) {
-			pw.println("학생찾기페이지에서 왔네요");
-		} else if (cmd.equals("list")) {
-			pw.println("학생목록페이지에서 왔네요");
-		}
+		CommandFactory factory = CommandFactory.getInstance();
+		CommandIf cmdIf = factory.createCommand(cmd);
+		String nextPage = (String)cmdIf.processCommand(req, resp);
+		RequestDispatcher view = req.getRequestDispatcher(nextPage);
+		view.forward(req, resp);
 		
 		
 	}
