@@ -1,0 +1,111 @@
+package student;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.SQLException;
+import java.util.List;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public class StudentServlet extends HttpServlet{
+
+	@Override
+	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
+		req.setCharacterEncoding("UTF-8");
+		resp.setContentType("text/html; charset=UTF-8");
+		
+		String cmd = req.getParameter("command");
+		PrintWriter pw = resp.getWriter();
+		String nextPage = null;
+		
+		if(cmd.equals("insert")) {
+			StudentDAO dao = new StudentDAO();
+			StudentDTO dto = new StudentDTO();
+			dto.setId(req.getParameter("id"));
+			dto.setName(req.getParameter("name"));
+			dto.setCname(req.getParameter("cname"));
+			int res = 0;
+			String msg = null, url = null;
+			try {
+				res = dao.insertStudent(dto);
+				if(res > 0) {
+					msg = "학생등록성공!! 학생목록페이지로 이동합니다";
+					url = "student.do?commant=list";
+				} else {
+					msg = "학생등록실패!! 학생등록페이지로 이동합니다.";
+					url = "student.do?command=start";
+				}
+			}catch(SQLException e) {
+				e.printStackTrace();
+				msg = "학생등록페이지 실행 중 DB서버 오류 발생!!";
+				url = "student.do?command=start";
+				nextPage = "message.jsp";
+			}
+			req.setAttribute("msg", msg);
+			req.setAttribute("url", url);
+			
+			
+		} else if (cmd.equals("delete")) {
+			String id = req.getParameter("id");
+			StudentDAO dao = new StudentDAO();
+			int res = 0;
+			String msg = null, url = null;
+			try {
+				res = dao.insertStudent(dto);
+				if(res > 0) {
+					msg = "학생삭제성공!! 학생목록페이지로 이동합니다";
+					url = "student.do?commant=list";
+				} else {
+					msg = "학생삭제실패!! 학생등록페이지로 이동합니다.";
+					url = "student.do?command=start";
+				}
+			}catch(SQLException e) {
+				e.printStackTrace();
+				msg = "학생등록페이지 실행 중 DB서버 오류 발생!!";
+				url = "student.do?command=start";
+			}
+			req.setAttribute("msg", msg);
+			req.setAttribute("url", url);
+			nextPage = "message.jsp";
+		} else if (cmd.equals("find")) {
+			
+			String msg = null, url = null;
+			StudentDAO dao = new StudentDAO();
+			List<StudentDTO> list= null;
+			
+			try {
+				list = dao.findStudent(req.getParameter("name"));
+				req.setAttribute("list", list);
+			} catch(SQLException e) {
+				e.printStackTrace();
+			}
+			
+		} else if (cmd.equals("list")) {
+			StudentDAO dao = new StudentDAO();
+			List<StudentDTO> list = null;
+			try {
+				list = dao.listStudent();
+				req.setAttribute("list", list);
+			} catch(SQLException e) {
+				e.printStackTrace();
+			}
+			nextPage = "list.jsp";
+			
+		} else if (cmd.equals("start")) {
+			nextPage = "student.jsp";
+		}
+		
+		RequestDispatcher view = req.getRequestDispatcher(nextPage);
+		view.forward(req, resp);
+		
+		
+	}
+	
+	
+	
+}

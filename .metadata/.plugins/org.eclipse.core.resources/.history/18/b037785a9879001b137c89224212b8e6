@@ -1,0 +1,5 @@
+package boardMVC;
+
+public class UpdateFromBoardCommand {
+
+}

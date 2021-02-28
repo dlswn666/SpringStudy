@@ -1,0 +1,52 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8" import="java.util.*, java.board.*"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>글 목록</title>
+</head>
+<style>
+	th{
+		background-color:green;
+		width:200px;
+	}
+	
+	table{
+		border:1px solid white;
+	}
+</style>
+<body>
+
+	<div align="center">
+		<b> 글 목 록</b>
+	<form action="" method=""></form>
+		<table>
+			<tr bgcolor="yellow">
+				<td align="right">글쓰기</td>
+			</tr>
+		</table>
+		<table>
+			<tr>
+				<th>번호</th>
+				<th>제목</th>
+				<th>작성자</th>
+				<th>작성일</th>
+				<th>조회</th>
+				<th>IP</th>
+			</tr>
+			<tr>
+				<td>1</td>
+				<td>2</td>
+				<td>3</td>
+				<td>4</td>
+				<td>5</td>
+				<td>6</td>
+		
+		
+		
+		</table>
+	</div>
+
+</body>
+</html>

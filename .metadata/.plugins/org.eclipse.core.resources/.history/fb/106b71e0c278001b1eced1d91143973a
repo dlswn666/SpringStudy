@@ -1,0 +1,28 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8" import="java.util.*,student.*"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>학생 조회</title>
+</head>
+<body>
+	<div align="center">
+		<hr color="green" width="300px">
+		<h2>학 생 목 록 보 기</h2>
+		<hr color="green" width="300px">
+		<table border="1" width="500px">
+			<tr bgcolor="yellow">
+			<th>아이디</th>
+			<th>학생명</th>
+			<th>학급명</th>
+			</tr>
+<% %>			
+<% %>			
+<% %>			
+			
+			
+		</table>
+	</div>
+</body>
+</html>

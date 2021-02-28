@@ -1,0 +1,14 @@
+package student;
+
+public class CommnadFactory {
+	
+	private CommnadFactory() {}
+	
+	private static CommnadFactory instance = new CommnadFactory();
+	
+	public static CommandFactory getInstance() {
+		return instance;
+	}
+	
+
+}

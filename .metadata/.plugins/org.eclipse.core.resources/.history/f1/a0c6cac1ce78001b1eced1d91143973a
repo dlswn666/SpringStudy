@@ -1,0 +1,15 @@
+package student;
+
+public class CommandFactory {
+	
+	// 싱글톤 패턴
+	private CommandFactory() {}
+	
+	private static CommandFactory instance = new CommandFactory();
+	
+	public static CommandFactory getInstance() {
+		return instance;
+	}
+	
+
+}

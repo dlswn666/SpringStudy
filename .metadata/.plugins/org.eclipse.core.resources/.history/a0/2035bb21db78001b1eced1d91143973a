@@ -1,0 +1,11 @@
+package boardMVC;
+
+public class FactoryCommand {
+	
+	private FactoryCommand() {}
+	
+	public static FactoryCommand instance = new FactoryCommand();
+	
+	
+
+}

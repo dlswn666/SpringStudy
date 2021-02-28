@@ -1,0 +1,69 @@
+package student;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.SQLException;
+import java.util.List;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public class StudentServlet extends HttpServlet{
+
+	@Override
+	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
+		req.setCharacterEncoding("UTF-8");
+		resp.setContentType("text/html; charset=UTF-8");
+		
+		String cmd = req.getParameter("command");
+		PrintWriter pw = resp.getWriter();
+		String nextPage = null;
+		
+		if(cmd.equals("insert")) {
+			CommandIf cmdIf = new InsertCommand();
+			nextPage = (String)cmdIf.processCommand(req, resp);
+		} else if (cmd.equals("delete")) {
+			CommandIf cmdIf = new DeleteCommand();
+			nextPage = (String)cmdIf.processCommand(req, resp);
+		} else if (cmd.equals("find")) {
+			
+			String msg = null, url = null;
+			StudentDAO dao = new StudentDAO();
+			List<StudentDTO> list= null;
+			
+			try {
+				list = dao.findStudent(req.getParameter("name"));
+				req.setAttribute("list", list);
+			} catch(SQLException e) {
+				e.printStackTrace();
+			}
+			nextPage = "list.jsp";
+			
+		} else if (cmd.equals("list")) {
+			StudentDAO dao = new StudentDAO();
+			List<StudentDTO> list = null;
+			try {
+				list = dao.listStudent();
+				req.setAttribute("list", list);
+			} catch(SQLException e) {
+				e.printStackTrace();
+			}
+			nextPage = "list.jsp";
+			
+		} else if (cmd.equals("start")) {
+			nextPage = "student.jsp";
+		}
+		    
+		RequestDispatcher view = req.getRequestDispatcher(nextPage);
+		view.forward(req, resp);
+		
+		
+	}
+	
+	
+	
+}

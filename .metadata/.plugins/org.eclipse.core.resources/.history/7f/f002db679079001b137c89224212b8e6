@@ -1,0 +1,30 @@
+package boardMVC;
+
+import java.io.IOException;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public class ContextBoardCommand implements BoardCommandIf{
+
+	@Override
+	public Object processCommand(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException {
+		String num = req.getParameter("num");
+		BoardDataBean dao = new BoardDataBean();
+		List<BoardDBBean> list = new ArrayList<BoardDBBean>();
+		try {
+			dao.listBoard();
+		}catch(SQLException e){
+			e.printStackTrace();
+		}
+		
+		req.setAttribute("list", list);
+		return "/WEB-INF/jsp/board/context.jsp";
+	}
+
+}
