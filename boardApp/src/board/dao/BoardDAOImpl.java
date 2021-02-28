@@ -34,6 +34,7 @@ public class BoardDAOImpl implements BoardDAO {
 				return dto;
 			}
 		};
+		System.out.println("깃에 올라가라");
 		List<BoardDBBean> list = jdbcTemplate.query(sql, mapper);
 		return list;
 	}
