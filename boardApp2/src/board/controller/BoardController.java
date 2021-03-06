@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,11 +17,8 @@ import board.dto.BoardDBBean;
 @Controller
 public class BoardController {
 	
+	@Autowired
 	private BoardDAO boardDAO;
-	
-	public void setBoardDAO(BoardDAO boardDAO) {
-		this.boardDAO = boardDAO;
-	}
 	
 	@RequestMapping("/board_list.do")
 	public String listBoard(HttpServletRequest req) {
