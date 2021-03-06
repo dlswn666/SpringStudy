@@ -36,4 +36,11 @@
 <fullyQualifiedTypeName name="boardMVC.BoardDBBean"/>
 <fullyQualifiedTypeName name="boardMVC.BoardCommandIf"/>
 <fullyQualifiedTypeName name="java.sql.SQLException"/>
+<fullyQualifiedTypeName name="board.dao.BoardDAOImpl.MyRowMapper"/>
+<fullyQualifiedTypeName name="board.dao.BoardDAO"/>
+<fullyQualifiedTypeName name="org.springframework.web.servlet.mvc.Controller"/>
+<fullyQualifiedTypeName name="org.springframework.web.servlet.ModelAndView"/>
+<fullyQualifiedTypeName name="org.springframework.web.bind.ServletRequestUtils"/>
+<fullyQualifiedTypeName name="org.springframework.web.servlet.mvc.AbstractCommandController"/>
+<fullyQualifiedTypeName name="board.dto.BoardDBBean"/>
 </qualifiedTypeNameHistroy>

@@ -33,7 +33,29 @@
 	<bean name="/board_list.do" class="board.controller.ListBoardController">
 		<property name="boardDAO" ref="boardDAO"/>
 	</bean>
-
+	<bean name="/board_writeForm.do" class="board.controller.BoardWriteFormController">
+	</bean>
+	<bean name="/board_writePro.do" class="board.controller.BoardWriteProCommandController">
+		<property name="commandClass" value="board.dto.BoardDBBean" />
+		<property name="commandName" value="boardCmd" />
+		<property name="boardDAO" ref="boardDAO"/>
+	</bean>
+	<bean name="/board_content.do" class="board.controller.BoardContentController">
+		<property name="boardDAO" ref="boardDAO"/>
+	</bean>
+	<bean name="/board_deleteForm.do" class="board.controller.BoardDeleteFormController">
+	</bean>
+	<bean name="/board_deletePro.do" class="board.controller.BoardDeleteProController">
+		<property name="boardDAO" ref="boardDAO"/>
+	</bean>
+	<bean name="/board_updateForm.do" class="board.controller.BoardUpdateFormController">
+		<property name="boardDAO" ref="boardDAO"/>
+	</bean>
+	<bean name="/board_updatePro.do" class="board.controller.BoardUpdateProCommandController">
+		<property name="commandClass" value="board.dto.BoardDBBean" />
+		<property name="commandName" value="boardCmd" />
+		<property name="boardDAO" ref="boardDAO"/>
+	</bean>
 </beans>
 
 

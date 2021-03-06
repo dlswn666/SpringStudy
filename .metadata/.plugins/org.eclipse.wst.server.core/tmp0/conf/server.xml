@@ -159,7 +159,10 @@
       <Context docBase="D:\workspace\SpringStudy\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\boardMVC" path="/boardMVC" reloadable="true" source="org.eclipse.jst.jee.server:mvcBoard">
       <Resource auth="Container" driverClassName="oracle.jdbc.driver.OracleDriver" maxAction="20" maxIdle="10" maxWait="-1" name="jdbc/oracle" password="spring02" type="javax.sql.DataSource" url="jdbc:oracle:thin:@localhost:1521:xe" username="spring02"/>
       </Context>
-      </Host>
+      <Context docBase="D:\workspace\SpringStudy\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\boardApp" path="/boardApp" reloadable="true" source="org.eclipse.jst.jee.server:boardApp">
+      	  <Resource auth="Container" driverClassName="oracle.jdbc.driver.OracleDriver" maxAction="20" maxIdle="10" maxWait="-1" name="jdbc/oracle" password="spring02" type="javax.sql.DataSource" url="jdbc:oracle:thin:@localhost:1521:xe" username="spring02"/>    
+      </Context>
+      <Context docBase="D:\workspace\SpringStudy\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\boardApp2" path="/boardApp2" reloadable="true" source="org.eclipse.jst.jee.server:boardApp2"/></Host>
     </Engine>
   </Service>
 </Server>
