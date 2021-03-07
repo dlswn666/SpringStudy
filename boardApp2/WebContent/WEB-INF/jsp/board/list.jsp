@@ -21,6 +21,7 @@
 				<th>작성일</th>
 				<th>조회</th>
 				<th>IP</th>
+				<th>파일</th>
 			</tr>
 <% 		List<BoardDBBean> list = (List)request.getAttribute("list");
 		if (list == null || list.size()==0){%>

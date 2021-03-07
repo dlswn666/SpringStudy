@@ -23,7 +23,7 @@
 </script>
 <%	BoardDBBean dto = (BoardDBBean)request.getAttribute("getBoard"); %>
 <div align="center">
-	<form name="f" action="board_updatePro.do" method="post" onsubmit="return check()">
+	<form name="f" action="board_update.do" method="post" onsubmit="return check()">
 		<input type="hidden" name="num" value="<%=dto.getNum()%>"/>
 		<table border="1" width="500">
 			<tr bgcolor="yellow">

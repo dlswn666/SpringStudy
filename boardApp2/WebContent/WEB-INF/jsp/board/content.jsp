@@ -33,13 +33,17 @@
 			<th bgcolor="yellow" width="20%">글내용</th>
 			<td align="left" colspan="3"><%=dto.getContent()%></td>
 		</tr>
+		<tr>
+			<th bgcolor="yellow" width="20%"> 파일 </th>
+			<td>
+		</tr>
     	<tr>
 			<td colspan="4" align="right" bgcolor="yellow">
 				<input type="button" value="글수정" 
-				onclick="window.location='board_updateForm.do?num=<%=dto.getNum()%>'" >
+				onclick="window.location='board_update.do?num=<%=dto.getNum()%>'" >
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<input type="button" value="글삭제" 
-				onclick="window.location='board_deleteForm.do?num=<%=dto.getNum()%>'">
+				onclick="window.location='board_delete.do?num=<%=dto.getNum()%>'">
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<input type="button" value="글목록" 
 				onclick="window.location='board_list.do'">

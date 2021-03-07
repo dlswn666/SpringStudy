@@ -3,7 +3,7 @@
 <%	String num = request.getParameter("num"); %>    
 <div align="center">
 	<b>±Û »è Á¦</b>
-	<form name="f" action="board_deletePro.do" method="post">
+	<form name="f" action="board_delete.do" method="post">
 		<input type="hidden" name="num" value="<%=num%>"/>
 		<table border="1">
 			<tr bgcolor="yellow">

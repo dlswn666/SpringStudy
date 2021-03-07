@@ -5,14 +5,12 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd">
 	
-	
-	<context:annotation-config/>
-	
+	<context:annotation-config />
 	
 	<bean id="viewResolver"
 				class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix">
-			<value>WEB-INF/jsp</value>
+			<value>WEB-INF/jsp/</value>
 		</property>
 		<property name="suffix">
 			<value>.jsp</value>
@@ -46,9 +44,12 @@
 		<property name="jdbcTemplate" ref="jdbcTemplate" />
 	</bean>
 	
-	<bean class="board.controller.BoardController">
-	</bean>
-	
+	<bean class="board.controller.BoardController" />
+
+	<bean id="multipartResolver" 
+				class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>
+
+	<bean class="test.FileUploadController" />
 	<!-- <bean name="/board_list.do" class="board.controller.ListBoardController">
 		<property name="boardDAO" ref="boardDAO"/>
 	</bean> -->
@@ -62,22 +63,22 @@
 		<property name="commandName" value="boardCmd" />
 		<property name="boardDAO" ref="boardDAO"/>
 	</bean> -->
-	<bean name="/board_content.do" class="board.controller.BoardContentController">
+	<!-- <bean name="/board_content.do" class="board.controller.BoardContentController">
 		<property name="boardDAO" ref="boardDAO"/>
-	</bean>
-	<bean name="/board_deleteForm.do" class="board.controller.BoardDeleteFormController">
+	</bean> -->
+	<!-- <bean name="/board_deleteForm.do" class="board.controller.BoardDeleteFormController">
 	</bean>
 	<bean name="/board_deletePro.do" class="board.controller.BoardDeleteProController">
 		<property name="boardDAO" ref="boardDAO"/>
-	</bean>
-	<bean name="/board_updateForm.do" class="board.controller.BoardUpdateFormController">
+	</bean> -->
+	<!-- <bean name="/board_updateForm.do" class="board.controller.BoardUpdateFormController">
 		<property name="boardDAO" ref="boardDAO"/>
 	</bean>
 	<bean name="/board_updatePro.do" class="board.controller.BoardUpdateProCommandController">
 		<property name="commandClass" value="board.dto.BoardDBBean" />
 		<property name="commandName" value="boardCmd" />
 		<property name="boardDAO" ref="boardDAO"/>
-	</bean>
+	</bean> -->
 </beans>
 
 
